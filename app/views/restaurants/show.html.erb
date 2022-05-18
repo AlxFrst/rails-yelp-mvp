@@ -7,3 +7,9 @@
 <%= link_to "Back to all restaurants", restaurants_path, class:"btn btn-warning" %>
 
 <h3>Reviews</h3>
+
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+  <li><%= review.content %></li>
+  <% end %>
+</ul>

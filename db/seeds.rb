@@ -7,8 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Restaurant.destroy_all
+Review.destroy_all
 
-5.times do
+10.times do
   Restaurant.create(
     name: Faker::Restaurant.name,
 
@@ -16,4 +17,14 @@ Restaurant.destroy_all
     address: Faker::Address.street_address,
     category: ["chinese", "italian", "japanese", "french", "belgian"].sample
   )
+end
+
+# add  review with a rate 0-5 and a comment for each restaurant
+10.times do
+  Restaurant.all.each do |restaurant|
+    restaurant.reviews.create(
+      content: Faker::Restaurant.review,
+      rating: rand(0..5)
+    )
+  end
 end
