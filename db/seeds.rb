@@ -9,7 +9,7 @@
 Restaurant.destroy_all
 Review.destroy_all
 
-10.times do
+100.times do
   Restaurant.create(
     name: Faker::Restaurant.name,
 
